@@ -1,16 +1,21 @@
 Code for the class _Introduction to numerical methods 1_
 (_数値解析序論１_), first semester 2016.
 
-## Running
+## Running the code
 
-Compile
+Suppose that you want to run the code in a file named `name.f90`. In
+your terminal, do the following:
 
-```bash
-gfortran file.f90 -o file.exe
-```
+1. Compile the code to an executable `name.exe`:
 
-Run
+    ```bash
+    gfortran name.f90 -o name.exe
+    ```
 
-```bash
-./file.exe
-```
+2. Run the executable:
+
+    ```bash
+    ./name.exe
+    ```
+
+3. Enjoy the output.
