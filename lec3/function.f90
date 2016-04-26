@@ -1,4 +1,4 @@
-program main
+program fnc
     implicit none
     real :: x, y
     real, external :: f
