@@ -1,4 +1,4 @@
-set title "Error of the explicit Euler method"
+set title "Error of the Euler method"
 set xlabel "h"
 set ylabel "err"
 set logscale xy

@@ -3,14 +3,17 @@ program explicit_euler
     integer :: i, N
     real :: x, h
     real, external :: f
-    h = 1.
-    x = 1.
-    N = 10. / h
 
+    h = 0.1
+    N = 1. / h
+
+    ! Euler method
+    x = 1.
     do i=1,N
         x = x + h * f(x, i * h)
-        write(*,*)x
+        write(*,*)i * h, x
     end do
+
 end program
 
 real function f(x, t)
