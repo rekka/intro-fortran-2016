@@ -1,4 +1,4 @@
-program explicit_euler
+program euler_erro
     implicit none
     integer :: i, N, k
     real :: x, h
@@ -10,7 +10,7 @@ program explicit_euler
 
         x = 1.
         do i=1,N
-            x = x + h * f(x, i * h)
+            x = x + h * f(x, (i - 1) * h)
         end do
         write(*,*)h,abs(x - exp(1.))
     end do

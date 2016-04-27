@@ -1,4 +1,4 @@
-program explicit_euler
+program euler
     implicit none
     integer :: i, N
     real :: x, h
@@ -9,8 +9,9 @@ program explicit_euler
 
     ! Euler method
     x = 1.
+    write(*,*)0., x
     do i=1,N
-        x = x + h * f(x, i * h)
+        x = x + h * f(x, (i - 1) * h)
         write(*,*)i * h, x
     end do
 

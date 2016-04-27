@@ -57,7 +57,7 @@ end program
 See the file `function.f90` for the complete code.
 
 
-## Euler method
+## The Euler method
 
 Suppose that we want to solve an ordinary differential equation
 
@@ -81,11 +81,11 @@ asymptotically smaller than than `h`.
 
 If we neglect `o(h)` then we can approximate `x(t + h)` by `x(t) + h
 f(x(t), t)`. Doing this iteratively, we get a sequence `x_0, x_1, x_2, ...`
-such that `x_0` is the initial condition, and then to get `x_{i+1}` from
-`x_i` we use the relation
+such that `x_0` is the initial condition, and then to obtain `x_i` from
+`x_{i - 1}` we use the relation
 
 ```
-x_{i+1} = x_i + h f(x_i, i h).
+x_i = x_{i - 1} + h f(x_{i - 1}, (i - 1) h).
 ```
 
 This is the ___Euler method___ for solving an ordinary differential
@@ -158,36 +158,92 @@ indicate a logarithmic scale.
 
 To find the order of the method, we need to find `k` such that the error
 behaves like `h^k`. To do this, we plot the functions `x`, `x^2` and
-`x^3` together with the data points. We now need to set the range of the
-plot.
-
+`x^3` together with the data points.
 
 ```gnuplot
 set logscale xy
-set xrange [0.001:1.]
 plot 'error.dat', x, x**2, x**3
 ```
 
 From this plot we should see that the error points form a line parallel
 to the graph of `x`. Therefore we observe that the Euler
-method is of order **1**.
+method is of **order 1**.
 
 We can add labels to make a nicer picture:
 ```gnuplot
 set title "Error of the Euler method"
 set xlabel "h"
 set ylabel "err"
+set key right bottom
 set logscale xy
-set xrange [0.001:1.]
 plot 'error.dat', x, x**2, x**3
 ```
 
 To not have to repeat the above commands all the time, we can save them
-in a file, for instance `error.plt`. Then we can run all of them at once
+in a file, for instance `error.plt`. In the script, you can use `#` for
+comments. See the `error.plt` file for the explanation of each line.
+Then we can run all of them at once
 by using
 
 ```bash
 $ gnuplot error.plt
 ```
 
+### Stability of the Euler method
+
+Now take the file `euler.f90` and modify it to solve the ODE
+
+```
+x' = -100x + 100t + 101
+x(0) = 1
+```
+
+with time step `h = 0.1`.
+
+- What is the exact solution?
+- What numerical solution do you get?
+- What is the plot of the solution?
+- How about with initial data `x(0) = 1.01` or `x(0) = 0.99`?
+
+Now try to set the time step to `h = 0.01`. Does the solution improve?
+
+_Conclusion:_ If `h` is chosen too big, the Euler method becomes
+**unstable**.
+
+We need to choose `h` small enough to satisfy a stability condition: for
+the Euler method it is
+
+```
+|1 + h d| < 1
+```
+
+where `d` is the maximal value of the derivative of the right-hand side `f(x,t)` with respect
+to `x`.
+
+## The backward Euler method
+
+The backward Euler method is derived similarly to [the Euler method],
+but we do the Taylor expansion at `t + h` instead of `t`:
+
+```
+x(t)  = x(t + h) - h x'(t + h) + o(h)
+      = x(t + h) - h f(x(t + h), t + h) + o(h)
+```
+
+Therefore if we neglect the term `o(h)`, we can approximate the value
+`x(t + h)` using the value `x(t) + h f(x(t + h), t + h)`. This leads by
+iteration to a sequence of values `x_0, x_1, x_2, ...` with
+
+```
+x_i = x_{i - 1} + h f(x_i, i h)
+```
+
+Since `x_i` is on the right-hand side, we need to solve an
+algebraic equation, which makes it more difficult to compute the value
+`x_i` at each time step than in the case of the Euler method.
+
+_Exercise:_ Apply the backward Euler method to the ODE in the previous
+section. Since `f(x,t) = - 100 x + 100 t + 101`, we can easily solve the
+algebraic equation. Implement the code and find the solution with `h =
+0.1` and initial condition `x(0) = 1.01`. What result do you get?
 
