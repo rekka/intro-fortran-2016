@@ -103,6 +103,15 @@ The Fortran code is in the file `euler.f90`. In that code we use the right-hand 
 find the numerical solution for
 `N = 10` time steps.
 
+_Exercise:_ Modify `euler.f90` to solve the ODE
+
+```
+x' = sin(x - t)
+x(0) = 0.
+```
+
+with `h = 0.01` for `N = 100` time steps. Plot the result in gnuplot.
+
 ### Error of the Euler method
 
 The value `x_i` is an approximation of `x(i h)`, the exact solution.
