@@ -2,10 +2,10 @@
 
 We cover the following topics:
 
-1. [Fortran `function`]
-1. [Euler method]
+1. [Fortran `function`](#fortran-function)
+1. [Euler method](#euler-method)
 1. [plotting with gnuplot using scripts]
-1. [Backward Euler method]
+1. [Backward Euler method](#backward-euler-method)
 
 ## Fortran `function`
 
