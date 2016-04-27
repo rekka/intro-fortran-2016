@@ -2,10 +2,10 @@
 
 We cover the following topics:
 
-1. Fortran `function`
-1. [Euler method](https://en.wikipedia.org/wiki/Euler_method)
-1. plotting with [gnuplot] using scripts
-1. [Backward (or implicit) Euler method](https://en.wikipedia.org/wiki/Backward_Euler_method)
+1. [Fortran `function`]
+1. [Euler method]
+1. [plotting with gnuplot using scripts]
+1. [Backward Euler method]
 
 ## Fortran `function`
 
@@ -57,7 +57,7 @@ end program
 See the file `function.f90` for the complete code.
 
 
-## The Euler method
+## Euler method
 
 Suppose that we want to solve an ordinary differential equation
 
@@ -227,7 +227,7 @@ the Euler method it is
 
 where `d = -100` in this case.
 
-## The backward Euler method
+## Backward Euler method
 
 The **backward** Euler method is derived similarly to [the Euler method],
 but we do the Taylor expansion at `t + h` instead of `t`:
@@ -246,10 +246,16 @@ the initial condition and the we can iteratively compute `x_i` from
 x_i = x_{i - 1} + h f(x_i, i h)
 ```
 
-This is the **backward Euler method**.
+This is the **backward Euler method**. See more on
+[wikipedia](https://en.wikipedia.org/wiki/Backward_Euler_method).
 Since `x_i` is on the right-hand side, we need to solve an
 algebraic equation, which makes it more difficult to compute the value
-`x_i` at each time step than in the case of the Euler method.
+`x_i` at each time step than in the case of the Euler method. Because of
+this, we call this method **implicit**.
+
+The main advantage of this method is that it is **unconditionally
+stable**. That is, there is no restriction on how big `h` we can take,
+only the global truncation error.
 
 _Exercise:_ Apply the backward Euler method to the ODE in the previous
 section. Since `f(x,t) = - 100 x + 100 t + 101`, we can easily solve the
