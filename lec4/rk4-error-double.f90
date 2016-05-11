@@ -1,8 +1,8 @@
 program rk4_error
     implicit none
     integer :: i, N, k
-    real :: x, t, h, k1, k2, k3, k4
-    real, external :: f
+    real(8) :: x, t, h, k1, k2, k3, k4
+    real(8), external :: f
 
     do k=0,10 
         N = 2**k
@@ -17,13 +17,13 @@ program rk4_error
             k4 = f(x + h * k3, t + h)
             x = x + h /6. * (k1 + 2. * k2 + 2. * k3 + k4)
         end do
-        write(*,*)h,abs(x - exp(1. * (1. + 2) / 2))
+        write(*,*)h,abs(x - dexp(1d0 * (1. + 2) / 2))
     end do
 end program
 
-real function f(x, t)
+real(8) function f(x, t)
     implicit none
-    real, intent(in) :: x, t
+    real(8), intent(in) :: x, t
 
     f = x * (1 + t)
 end function
