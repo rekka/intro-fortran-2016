@@ -1,12 +1,14 @@
 In today's lecture we will learn how to find a numerical solution of
 second order ordinary differential equations.
 
+## 2nd order ordinary differential equations
+
 Find the solution of
 
 ```
-x''(t) + x(t) = 0, t > 0,
-x(0) = 1,
-x'(0) = 0
+y''(t) + y(t) = 0, t > 0,
+y(0) = 1,
+y'(0) = 0
 ```
 
 The exact solution of this second order differential equation is `x(t) =
@@ -17,8 +19,8 @@ it to a first order system. Let us introduce two functions `x_1` and
 `x_2` by setting
 
 ```
-x_1(t) = x(t),
-x_2(t) = x'(t).
+x_1(t) = y(t),
+x_2(t) = y'(t).
 ```
 
 Note that we then have the following first order system:
@@ -62,9 +64,9 @@ This time implement the 4th order Runge-Kutta method to solve the second
 order differential equation
 
 ```
-x''(t) + x(t) = 0, t > 0,
-x(0) = 1,
-x'(0) = 0
+y''(t) + y(t) = 0, t > 0,
+y(0) = 1,
+y'(0) = 0
 ```
 
 Use gnuplot to estimate the order of the method.
