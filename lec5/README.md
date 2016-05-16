@@ -82,8 +82,25 @@ contains
 end program
 ```
 
-The resulting code is in file `midpoint2.f90`. Run the code and plot the
-result in gnuplot. Estimate the error of the method.
+The resulting code is in file
+[`midpoint2.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec5/midpoint2.f90). Run the code and plot the
+result in gnuplot. However, now we have for each time values `x_1(t)`
+and `x_2(t)`. To plot both values in gnuplot into one graph, we specify
+which data to plot by adding `using 1:2` to the `plot` command to use
+the second column and `using 1:3` to use third column:
+
+```bash
+$ gfortran midpoint.f90 -o a.exe
+$ ./a.exe > sol.dat
+```
+
+and in gnuplot
+
+```gnuplot
+plot 'sol.dat' using 1:2, 'sol.dat' using 1:3
+```
+
+_Exercise:_ Estimate the error of the method.
 
 ## 4th order Runge-Kutta method
 
