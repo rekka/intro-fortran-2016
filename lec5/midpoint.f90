@@ -1,4 +1,4 @@
-program midpoint2
+program midpoint
     implicit none
     integer :: i, N
     real :: t, h, pi = 4. * atan(1.)
