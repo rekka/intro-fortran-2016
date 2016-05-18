@@ -11,7 +11,7 @@ y(0) = 1,
 y'(0) = 0
 ```
 
-The exact solution of this second order differential equation is `x(t) =
+The exact solution of this second order differential equation is `y(t) =
 cos(t)`.
 
 We can use the already developed methods to solve this ODE by converting
@@ -38,7 +38,7 @@ method of second order).
 ### Arrays in fortran
 
 We first need to learn how to store efficiently multiple values in
-fortran like `x_1`, `x_2`.
+Fortran like `x_1`, `x_2`.
 
 We declare `x` as an _array_ of dimension 2:
 
@@ -47,19 +47,48 @@ real, dimension(2) :: x
 ```
 
 Then we can access the values in `x` as `x(1)` and `x(2)`.
+Arrays can be initialized as
 
-Fortran also supports array operation. That is, we can efficiently
+```fortran
+x(1) = 1.
+x(2) = 0.
+```
+
+or using the shorthand notation
+
+```fortran
+x = (/ 1., 0. /)
+```
+
+Fortran also supports _array operations_. That is, we can efficiently
 perform operations on a per-element basis. For example,
 
 ```fortran
 real, dimension(2) :: x, y, z
-! ... initialize x, y
-...
+x = (/ 0., 1. /)
+y = (/ 3., 5. /)
 z = x + y
+write(*,*) z
 ```
 
 In this case `z` will be an array with values `z(1) = x(1) + y(1)` and
-`z(2) = x(2) + y(2)`.
+`z(2) = x(2) + y(2)`, so the printed result is `3.  6.`.
+
+To declare a function that returns an array, we need to move the type
+declaration into the body to be able to specify the dimension:
+
+```fortran
+function f(x, t)
+    implicit none
+    real, intent(in), dimension(2) :: x
+    real, intent(in) :: t
+    real, dimension(2) :: f
+
+    f(1) = x(2)
+    f(2) = - x(1)
+end function
+```
+
 
 ### Midpoint method for systems
 
@@ -76,7 +105,7 @@ declare `f` as `external`:
 program name
    ...
 contains
-    real function f(x,t)
+    function f(x,t)
         ...
     end function
 end program
@@ -114,3 +143,21 @@ y'(0) = 0
 ```
 
 Use gnuplot to estimate the order of the method.
+
+### Numerical precision
+
+By default, variables declared as `real` are _single precision_
+floating point numbers. Single precision stores only about 7 decimal places.
+To increase the precision, we can request _double precision_ floating
+point numbers by declaring the variables as `real(8)`. Here 8 is the
+number of bytes used to store the number, which implies double
+precision. Single precision uses 4 bytes, and is therefore more memory
+efficient.
+
+Fortran functions like `cos`, `exp` and `abs` work with single precision
+numbers. The double precision equivalents are `dcos`, `dexp`, `dabs`,
+etc.
+
+Constants like `1.` are single precision by default. To under double
+precision constants, we can use the scientific notation `1.0d0` or `1d0`
+for short.
