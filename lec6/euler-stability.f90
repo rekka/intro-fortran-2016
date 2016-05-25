@@ -2,7 +2,6 @@ program euler_stability
     implicit none
     integer :: i, N
     real :: x, h
-    real, external :: f
 
     h = 0.1
     N = 1. / h
@@ -15,11 +14,13 @@ program euler_stability
         write(*,*)i * h, x
     end do
 
+contains
+
+    real function f(x, t)
+        implicit none
+        real, intent(in) :: x, t
+
+        f = -100. * x + 100. * t + 101.
+    end function
 end program
 
-real function f(x, t)
-    implicit none
-    real, intent(in) :: x, t
-
-    f = -100. * x + 100. * t + 101.
-end function
