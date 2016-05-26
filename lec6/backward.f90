@@ -1,10 +1,10 @@
 program backward
     implicit none
-    integer :: i, N
+    integer :: i, N, k
     real :: x, h
     real, external :: f
 
-    h = 0.1
+    h = 0.5
     N = 1. / h
 
     ! backward Euler method for f(x,t) = -100x + 100t + 101

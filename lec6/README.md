@@ -77,22 +77,27 @@ algebraic equation.
 
 In the case of a general right-hand side `f`, the solution `x_i` in the
 backward Euler method cannot be found analytically. We therefore use
-iterative numerical methods, such as Newton's method:
+iterative numerical methods, such as [Newton's method](https://en.wikipedia.org/wiki/Newton's_method):
 
-Suppose we want to find a solution `x` of the equation `g(x) = 0`. Given
-a guess `x_0`, we try to improve the solution by finding the
-intersection of the tangent line to the graph of `g` at `(x_0, g(x_0))`
-and the `x` axis. This gives a new `x_1`:
+Suppose we want to find a solution `y` of the equation `g(y) = 0`. Given
+a guess `y_0`, we try to improve the solution by finding the
+intersection of the tangent line to the graph of `g` at `(y_0, g(y_0))`
+and the `y` axis. This gives a new `y_1`:
 
 ```
-x_1 = x_0 - g(x_0)/g'(x_0).
+y_1 = y_0 - g(y_0)/g'(y_0).
 ```
 
-Quite often `x_1` is a much better approximation of the solution than
-`x_0`. We can do this iteratively.
+Quite often `y_1` is a much better approximation of the solution than
+`y_0`. We can do this iteratively.
 
 _Exercise:_ Implement a backward Euler method with Newton's method for
 finding the new value `x_i` for general `f`. You will need to provide
 the derivative `f_x`.
+
+Note that in this case `g(y) = y - h f(y, t_i) - x_{i-1}`.
+
+See the code in
+[`backward-newton.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec6/backward-newton.f90).
 
 [gnuplot]: http://www.gnuplot.info/
