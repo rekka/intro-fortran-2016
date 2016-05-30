@@ -97,7 +97,18 @@ the derivative `f_x`.
 
 Note that in this case `g(y) = y - h f(y, t_i) - x_{i-1}`.
 
-See the code in
-[`backward-newton.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec6/backward-newton.f90).
+See
+[`backward-newton.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec6/backward-newton.f90)
+for a Fortran code using the backward Euler method with Newton's method
+to solve the ODE
+
+```
+x'(t) = sin(x),      t > 0,
+x(0) = 1
+```
+
+with `h = 0.1` and `N = 100`. The solution should look like:
+
+![](https://github.com/rekka/intro-fortran-2016/blob/master/lec6/ode-sinx.png)
 
 [gnuplot]: http://www.gnuplot.info/

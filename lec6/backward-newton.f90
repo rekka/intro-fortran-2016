@@ -6,8 +6,8 @@ program backward_newton
     h = 0.1
     N = 10. / h
 
-    ! backward Euler method for f(x,t) = -100x + 100t + 101
-    x = 1.01
+    ! backward Euler method for the ODE x'(t) = f(x,t) = sin(x)
+    x = 1
     write(*,*)0., x
     do i=1,N
         ! Use 5 iterations of Newton's method to find the solution x_i of
