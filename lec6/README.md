@@ -103,7 +103,7 @@ for a Fortran code using the backward Euler method with Newton's method
 to solve the ODE
 
 ```
-x'(t) = sin(x),      t > 0,
+x' = sin(x),      t > 0,
 x(0) = 1
 ```
 
