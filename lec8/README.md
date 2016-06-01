@@ -12,7 +12,8 @@ the temperature of the rod at point `x ∈ [0,1]` at a later time `t >
 0`, called `u(x,t)`.
 
 It is useful to think about the temperature `u` as a function of
-position `x ∈ [0,1]` and time `t ≥ 0`. Then physical Fourier's law
+position `x ∈ [0,1]` and time `t ≥ 0`. Then physical [Fourier's
+law](https://en.wikipedia.org/wiki/Thermal_conduction#Fourier.27s_law)
 implies that the function `u` is a solution of the [heat
 equation](heat-wiki), a _parabolic-type_ partial differential equation:
 
@@ -77,7 +78,8 @@ M`. In particular, `x_k = k h`, `k = 0, ... M`.
 Similarly, we choose time step `τ > 0` and introduce the discrete times
 `t_i = i τ` for `i = 0, ...`. Let `u_{i, k}` denote the value of a
 numerical approximation of `u(x_k, t_i)`. From the formulas for the
-approximation of `u_t` and `u_xx`, we get the following numerical scheme
+approximation of `u_t` and `u_xx` and the heat equation, we get the
+following numerical scheme
 
 ```
 (u_{i+1, k} - u_{i, k}) / τ = (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}) / h²,
@@ -98,7 +100,12 @@ u_{i+1, k} = u_{i, k}) + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
 An example Fortran code for the case `a = b = 0` and `u_0(x) = sin(π
 x)`, `M = 10` and `τ = h² / 2`, is
 given in the file
-[`heat.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90).
+[`heat.f90`](heat-code).
+
+_Exercise:_ Run the code in [`heat.f90`](heat-code) and plot the result
+using gnuplot.
+
+[heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
 
 ## Stability of the explicit finite difference scheme
 
@@ -115,6 +122,10 @@ analysis](https://en.wikipedia.org/wiki/Von_Neumann_stability_analysis)
 for details.
 
 Therefore if we want to have a good space resolution of our method, `h`
-small`, the number of time steps that we need to take becomes quickly
+small, the number of time steps that we need to take becomes quickly
 prohibitively large. In such a case we should use a better numerical
 method, for instance implicit methods.
+
+_Exercise:_ Try to change `tau = h * h / 2.` to `tau = h * h` in
+[`heat.f90`](heat-code) and observe what happens to the numerical
+solution.
