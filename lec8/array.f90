@@ -14,7 +14,10 @@ program array
     write(*,*) y
 
     ! array operations
-    write(*,*) sum(abs(x - y))
+    write(*,*) sum(abs(x - y)) ! sum all abs. values of differences
+    write(*,*) sqrt(sum(x * x)) ! norm
+
+    ! number of elements
     write(*,*) size(x)
 
     ! array slicing
