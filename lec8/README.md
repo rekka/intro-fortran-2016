@@ -103,7 +103,19 @@ given in the file
 [`heat.f90`](heat-code).
 
 _Exercise:_ Run the code in [`heat.f90`](heat-code) and plot the result
-using gnuplot.
+using gnuplot. To plot two dimensional data (space dimension and time
+dimension), we use `splot` instead of `plot`:
+
+```gnuplot
+> splot 'sol.dat'
+```
+
+To connect the data points with lines, add `w l` (`with lines`):
+```gnuplot
+> splot 'sol.dat' w l
+```
+
+
 
 [heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
 
