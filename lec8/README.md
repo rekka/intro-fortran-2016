@@ -94,7 +94,7 @@ We can express `u_{i+1, k}` in terms of `u_{i, k - 1}`, `u_{i, k}` and
 time `t_{i + 1}`. This gives us the explicit finite difference method
 
 ```
-u_{i+1, k} = u_{i, k}) + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
+u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
 ```
 
 An example Fortran code for the case `a = b = 0` and `u_0(x) = sin(π
@@ -106,6 +106,76 @@ _Exercise:_ Run the code in [`heat.f90`](heat-code) and plot the result
 using gnuplot.
 
 [heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
+
+## Arrays in Fortran
+
+The variables in Fortran that we have see so far store exactly 1 value.
+To store multiple values in one variable, we can use arrays. An array is
+a data structure that stores a given number of _indexed_ values of the same type.
+See [Lecture 5, Arrays in Fortran](https://github.com/rekka/intro-fortran-2016/tree/master/lec5#arrays-in-fortran).
+
+To declare an array of `N` elements in Fortran, where `N`, we use the
+statement `dimension(N)` when declaring a variable. For example, to
+introduce an array `x` of `5` real values, we declare `x` as
+
+```fortran
+real, dimension(5) :: x
+```
+
+The variable `x` now stores 5 values denoted as: `x(1)`, `x(2)`, ..., `x(5)`.
+
+___Note___: Trying to access other elements, such as `x(0)`, `x(6)` is
+an error. Fortran might not complain, but accessing this values will
+likely crash your program and not give correct results.
+
+To initialize an array, we can use the notation
+
+```fortran
+x = (/ 1., 2., 3., 4., 5. /)
+```
+
+This is equivalent to
+
+```fortran
+do i=1,5
+    x(i) = i
+end do
+```
+
+Printing the all the values of the array on one line, separated by spaces, is as
+simple as
+
+```fortran
+write(*,*) x
+```
+
+The _size_ of the array is the number of its elements. You can use the
+function `size` to find it in your code:
+
+```fortran
+write(*,*) size(x)
+```
+
+_Example:_ Suppose that we want to compute the sum of array `x`. We can
+use the `do` loop:
+
+```fortran
+real :: s
+
+s = 0.
+do i=1,size(x)
+    s = s + x(i)
+end do
+write(*,*) s
+```
+
+_Exercise:_ Suppose that `x` is an array with 11 elements, the values of
+function `t(1 - t)` at points `t = 0., 0.1, 0.2,
+..., 1.0`. Write the code for computing the sum, average, product, maximum and
+minimum value of values in array `x` (using `do` loop).
+
+_Exercise:_ Let `x` be an array of size `N`. Find the `l²`-norm of `x`: `|x| =
+(x(1)² + x(2)² + ... + x(N)²)^(1/2)`.
 
 ## Stability of the explicit finite difference scheme
 
@@ -129,3 +199,38 @@ method, for instance implicit methods.
 _Exercise:_ Try to change `tau = h * h / 2.` to `tau = h * h` in
 [`heat.f90`](heat-code) and observe what happens to the numerical
 solution.
+
+
+## Neumann boundary condition
+
+Now instead of prescribing the value of `u` at `x = 0` and `x = 1`, we prescribe
+the value of the derivatives:
+
+```
+    u_t(x, t) = u_xx(x, t),        0 < x < 1, t > 0,
+      u(x, 0) = u_0(x),            0 < x < 1,
+    u_x(0, t) = a,                 0 < t,
+    u_x(1, t) = b,                 0 < t.
+```
+
+We have the modify the numerical method at the boundary since now the
+values `u_{i, 0}` and `u_{i, M}` are unknown. We use the difference
+scheme as before:
+
+```
+u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
+```
+
+However, when `k = 0`, we need something in place of `u_{i, -1}`. We use
+the value of the derivative at `x = 0`: `u_{i, -1} = u_{i, 0} - h * a`.
+Similarly, at `x = 1` we use `u_{i, M + 1} = u_{i, M} + h * b`.
+Therefore for `k = 0` and at `k = M` we get the modified scheme
+
+```
+u_{i+1, 0} = u_{i, 0} + τ / h² * (u_{i, k + 1} - u_{i, k} - h * a).
+u_{i+1, M} = u_{i, M} + τ / h² * (u_{i, k - 1} - u_{i, k} + h * b).
+```
+
+_Exercise:_ Implement the finite difference method for the heat equation
+with initial data `u_0(x) = x (1 - x)` and Neumann boundary data `u_x(0)
+= 1`, `u_x(0) = 1`.
