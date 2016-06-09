@@ -1,4 +1,4 @@
-program sort
+program arrayops
     implicit none
     integer :: i, j
     integer, parameter :: M = 5
