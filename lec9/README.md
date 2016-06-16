@@ -115,7 +115,16 @@ To connect the data points with lines, add `w l` (`with lines`):
 > splot 'sol.dat' w l
 ```
 
+_Exercise:_ Solve the heat equation with the following data:
 
+- `u_0(x) = sin(πx)`, `a = b = 0`
+- `u_0(x) = sin(πx) + sin(3πx)`, `a = b = 0`
+- `u_0(x) = x(1 - x) + x`, `a = 0`,  `b = 1`
+- `u_0(x) = 1/2 - |x- 1/2|`, `a = b = 0`
+
+_Exercise:_ Solve the heat equation with the source `f = 1`, initial
+data `u_0(x) = 0`, boundary data `a = b = 0`. In this case
+`u_t = u_xx + f`.
 
 [heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
 
@@ -175,4 +184,4 @@ u_{i+1, M} = u_{i, M} + τ / h² * (u_{i, k - 1} - u_{i, k} + h * b).
 
 _Exercise:_ Implement the finite difference method for the heat equation
 with initial data `u_0(x) = x (1 - x)` and Neumann boundary data `u_x(0)
-= 1`, `u_x(0) = 1`.
+= 1`, `u_x(1) = 1`.
