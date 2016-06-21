@@ -4,7 +4,8 @@ presentation
 ## Presentaion: The heat equation
 
 Implement the explicit finite difference method for solving the heat
-equation on the domain `x ∈ (0, 1)`, `t ∈ (0, 1)` as explained in [lecture 9](https://github.com/rekka/intro-fortran-2016/tree/master/lec9).
+equation on the domain `x ∈ (0, 1)`, `t ∈ (0, 1)` as explained in
+[lecture 9](https://github.com/rekka/intro-fortran-2016/tree/master/lec09).
 
 Parameters are `M = 10`, `τ = ½h²`. Use the following initial and boundary data:
 

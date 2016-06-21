@@ -130,7 +130,7 @@ data `u_0(x) = 0`, boundary data `a = b = 0`. In this case
 u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}) + f(x_k, t_i).
 ```
 
-[heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
+[heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec08/heat.f90
 
 ## Stability of the explicit finite difference scheme
 

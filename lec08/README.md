@@ -8,7 +8,7 @@ points in space.
 The variables in Fortran that we have see so far store exactly 1 value.
 To store multiple values in one variable, we can use arrays. An array is
 a data structure that stores a given number of _indexed_ values of the same type.
-See also [Lecture 5, Arrays in Fortran](https://github.com/rekka/intro-fortran-2016/tree/master/lec5#arrays-in-fortran).
+See also [Lecture 5, Arrays in Fortran](https://github.com/rekka/intro-fortran-2016/tree/master/lec05#arrays-in-fortran).
 
 To declare an array of `N` elements in Fortran, where `N` is a positive
 integer, we use the statement `dimension(N)` when declaring a variable.
@@ -54,7 +54,7 @@ write(*,*) size(x)
 ```
 
 See file
-[`array.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec8/array.f90) for some examples of working with arrays.
+[`array.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec08/array.f90) for some examples of working with arrays.
 
 _Example:_ Suppose that we want to compute the sum of array `x`: `x(1) +
 x(2) + ... + x(5)`. We can
@@ -81,11 +81,11 @@ _Exercise:_ Suppose that `x` is an array with 5 elements `1., 2., ...,
 - second larges value
 
 A sample answer is in
-[`arrayops.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec8/arrayops.f90).
+[`arrayops.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec08/arrayops.f90).
 
 _Exercise:_ Sort the array `x` of 5 elements `sin(1), sin(2), ...,
 sin(5)`.
 
 A sample answer is in
-[`sort.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec8/sort.f90).
+[`sort.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec08/sort.f90).
 
