@@ -72,8 +72,8 @@ h²/2 u_xx(x,t) ∼ u(x + h, t) - 2u(x, t) + u(x - h, t).
 ```
 
 We now select an integer `M ≥ 1` and subdivide the domain `(0,1)` into
-`M` intervals `(x_{k-1}, x_k)` of length `h = 1 / M` for `k = 1, ...,
-M`. In particular, `x_k = k h`, `k = 0, ... M`.
+`M` intervals `(x_k, x_{k+1})` of length `h = 1 / M` for `k = 1, ...,
+M`. In particular, `x_k = (k - 1) h`, `k = 0, ... M`.
 
 Similarly, we choose time step `τ > 0` and introduce the discrete times
 `t_i = i τ` for `i = 0, ...`. Let `u_{i, k}` denote the value of a
@@ -85,8 +85,8 @@ following numerical scheme
 (u_{i+1, k} - u_{i, k}) / τ = (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}) / h²,
 ```
 
-`i = 1, ...`, `k = 1, ..., M-1`. The values `u_{0, k}` are given by the
-initial data `u_0(x_k)`, and the values `u_{i, 0}`, `u_{i, M}` are given
+`i = 1, ...`, `k = 2, ..., M`. The values `u_{0, k}` are given by the
+initial data `u_0(x_k)`, and the values `u_{i, 1}`, `u_{i, M + 1}` are given
 by the boundary data `a` and `b`.
 
 We can express `u_{i+1, k}` in terms of `u_{i, k - 1}`, `u_{i, k}` and
@@ -124,7 +124,11 @@ _Exercise:_ Solve the heat equation with the following data:
 
 _Exercise:_ Solve the heat equation with the source `f = 1`, initial
 data `u_0(x) = 0`, boundary data `a = b = 0`. In this case
-`u_t = u_xx + f`.
+`u_t = u_xx + f` and the finite difference scheme is
+
+```
+u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}) + f(x_k, t_i).
+```
 
 [heat-code]: https://github.com/rekka/intro-fortran-2016/blob/master/lec8/heat.f90
 
@@ -165,21 +169,21 @@ the value of the derivatives:
 ```
 
 We have the modify the numerical method at the boundary since now the
-values `u_{i, 0}` and `u_{i, M}` are unknown. We use the difference
+values `u_{i, 1}` and `u_{i, M + 1}` are unknown. We use the difference
 scheme as before:
 
 ```
 u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
 ```
 
-However, when `k = 0`, we need something in place of `u_{i, -1}`. We use
-the value of the derivative at `x = 0`: `u_{i, -1} = u_{i, 0} - h * a`.
-Similarly, at `x = 1` we use `u_{i, M + 1} = u_{i, M} + h * b`.
-Therefore for `k = 0` and at `k = M` we get the modified scheme
+However, when `k = 1`, we need something in place of `u_{i, 0}`. We use
+the value of the derivative at `x = 0`: `u_{i, 1} = u_{i, 2} - h * a`.
+Similarly, at `x = 1` we use `u_{i, M + 2} = u_{i, M + 1} + h * b`.
+Therefore for `k = 1` and at `k = M + 1` we get the modified scheme
 
 ```
-u_{i+1, 0} = u_{i, 0} + τ / h² * (u_{i, k + 1} - u_{i, k} - h * a).
-u_{i+1, M} = u_{i, M} + τ / h² * (u_{i, k - 1} - u_{i, k} + h * b).
+u_{i+1, 1} = u_{i, 1} + τ / h² * (u_{i, 2} - u_{i, 1} - h * a).
+u_{i+1, M + 1} = u_{i, M + 1} + τ / h² * (u_{i, M} - u_{i, M + 1} + h * b).
 ```
 
 _Exercise:_ Implement the finite difference method for the heat equation
