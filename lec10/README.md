@@ -54,8 +54,7 @@ We consider Dirichlet boundary condition `u_{i, 1} = a`, `u_{i, M + 1} =
 b` for any `i ≥ 0`.
 
 Now to find the solution at `t = t_{i+1}` we need to solve a system of
-`M - 1` linear equations for `M - 1` variables `u_{i + 1, 2}, ..., u_{i
-+ 1, M}`.
+`M - 1` linear equations for `M - 1` variables `u_{i + 1, 2}, ..., u_{i + 1, M}`.
 
 Let us fix `i` and simplify the notation by writing `u_k = u_{i,k}`,
 `v_k = u_{i + 1,k}`. Let us set `c = τ / h²`. Then the linear system is
