@@ -1,10 +1,10 @@
 Lecture 10: writing code for heat equation and preparing for a
 presentation
 
-## Presentaion: The heat equation
+## Presentation: The heat equation
 
 Implement the explicit finite difference method for solving the heat
-equation on the domain `x ∈ (0, 1)`, `t ∈ (0, 1)` as explained in
+equation on the domain `x ∈ (0, 1)`, `t ∈ (0, ½)` as explained in
 [lecture 9](https://github.com/rekka/intro-fortran-2016/tree/master/lec09).
 
 Parameters are `M = 10`, `τ = ½h²`. Use the following initial and boundary data:
@@ -31,6 +31,20 @@ splot 'sol.dat' w l
 - `graph.png` is the image file name; you can use anything you want
   (with extension `.png`)
 - `800,600` is the size of the image in pixels
+
+
+Test the order of the method by comparing the numerical solution to the
+exact solution for the problem with the Dirichlet boundary condition and
+data: `u_0(x) = sin(πx)`, `a = b = 0`.
+Recall that the exact solution is `u(x,t) = exp(-π²t) sin(πx)`. Compare
+the exact solution `u` and the numerical solution `u_{i, k}` using the
+maximum norm at `t = 0.1`: Set `i = 0.1 / τ` and compute
+
+```
+max {|u(x_k, t_i) - u_{i, k}|: k=1, ..., M+1}.
+```
+
+Use `M = 10, 20, 40`, `τ = ½h²`.
 
 ___Bonus:___
 
