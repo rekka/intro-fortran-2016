@@ -23,9 +23,11 @@ program heat
     do i=1,N
 
         ! one step of explicit finite difference method
+        v(1) = u(1)
         do k = 2,M
             v(k) = u(k) + (tau / (h * h)) * (u(k - 1) - 2 * u(k) + u(k + 1))
         end do
+        v(M + 1) = u(M + 1)
 
         ! can be also written as
         ! v(2:M) = u(2:M) + (tau / (h * h)) * (u(1:M-1) - 2 * u(2:M) + u(3:M+1))
