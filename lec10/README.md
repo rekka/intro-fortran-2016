@@ -9,12 +9,12 @@ equation on the domain `x ∈ (0, 1)`, `t ∈ (0, ½)` as explained in
 
 Parameters are `M = 10`, `τ = ½h²`. Use the following initial and boundary data:
 
-1. Dirichlet boundary condition `u(0, x) = a`, `u(1, x) = b`:
+1. Dirichlet boundary condition `u(0, t) = a`, `u(1, t) = b`:
 
     - `u_0(x) = sin(πx)`, `a = b = 0`
     - `u_0(x) = sin(πx) + sin(3πx)`, `a = b = 0`
 
-2. Neumann boundary condition `u_x(0, x) = a`, `u_x(1, x) = b`.
+2. Neumann boundary condition `u_x(0, t) = a`, `u_x(1, t) = b`.
 
     - `u_0(x) = x(1 - x) + x`, `a = 0`,  `b = 0`
     - `u_0(x) = 1/2 - |x- 1/2|`, `a = 1`, `b = -1`
