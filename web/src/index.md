@@ -17,5 +17,5 @@ The sample Fortran code is available at
 - [Lecture 6](https://github.com/rekka/intro-fortran-2016/tree/master/lec06)
 - [Lecture 7](https://github.com/rekka/intro-fortran-2016/tree/master/lec07)
 - [Lecture 8](https://github.com/rekka/intro-fortran-2016/tree/master/lec08)
-- [Lecture 9](https://github.com/rekka/intro-fortran-2016/tree/master/lec09)
+- [Lecture 9](lec09.html)
 - [Lecture 10](lec10.html)

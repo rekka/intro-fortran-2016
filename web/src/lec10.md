@@ -15,7 +15,7 @@ results.
  1. Implement the explicit finite difference method for solving the heat
     equation on the domain $x \in (0, 1)$, $t \in (0, \frac 12)$ as
     explained in [lecture
-    9](https://github.com/rekka/intro-fortran-2016/tree/master/lec09).
+    9](lec09.html).
 
     Parameters are $M = 10$, $\tau = \frac 12h^2$. Use the following initial and boundary data:
 

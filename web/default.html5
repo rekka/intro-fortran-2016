@@ -38,7 +38,16 @@ $endfor$
         font-size: 12pt;
         border: 0px;
     }
+    /* fix for fractions not having a margin */
+    .mjx-mfrac {
+        margin-right: 0.2em;
+    }
 </style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 $if(math)$
   $math$
 $endif$
