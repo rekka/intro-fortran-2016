@@ -138,7 +138,7 @@ To connect the data points with lines, add `w l` (`with lines`):
 splot 'sol.dat' w l
 ```
 
-![Sample gnuplot output](https://github.com/rekka/intro-fortran-2016/blob/master/lec09/heat.svg)
+![Sample gnuplot output](img/heat.svg)
 
 _Exercise:_ Solve the heat equation with the following data:
 

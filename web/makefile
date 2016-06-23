@@ -22,6 +22,8 @@ PANDOC = pandoc --from=markdown --to=html5 --standalone --smart --section-divs -
 # this is so that make does not expect website file to be actually created
 .PHONY : website
 website: $(HTML_FILES)
+	@mkdir -p public_html/img
+	@rsync -rlvc --delete -q img public_html/
 
 # $@ is target, $< is source
 # target: source
