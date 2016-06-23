@@ -27,7 +27,7 @@ results.
     - Neumann boundary condition $u_x(0, t) = a$, $u_x(1, t) = b$:
 
         - $u_0(x) = x(1 - x) + x$, $a = 0$,  $b = 0$
-        - $u_0(x) = 1/2 - |x- 1/2|$, $a = 1$, $b = -1$
+        - $u_0(x) = \frac 12 - |x- \frac 12|$, $a = 1$, $b = -1$
 
  2. Plot the solutions using gnuplot. To store the plot as an image
     file, you can use the gnuplot commands:
@@ -48,7 +48,7 @@ results.
     condition and data: $u_0(x) = \sin(\pi x)$, $a = b = 0$.  Recall
     that the exact solution is $u(x,t) = \exp(-\pi ^2t) \sin(\pi x)$.
     Compare the exact solution $u$ and the numerical solution $u_{i, k}$
-    using the maximum norm at $t = 0.1$: Set $i = 0.1 / \tau$ and
+    using the maximum norm at $t = 0.1$: Set $i = \frac{0.1} \tau$ and
     compute
 
     $$
@@ -87,9 +87,13 @@ $v_k = u_{i + 1,k}$. Let us set $c = \tau / h^2$. Then the linear system is
 
 $$
 \begin{align*}
+(1 + 2 c) v_{2} - c v_{3} &= u_2 + c a\\
+-c v_{2} + (1 + 2 c) v_{3} - c v_{4} &= u_3\\
 &\vdots\\
 -c v_{k - 1} + (1 + 2 c) v_{k} - c v_{k + 1} &= u_k\\
-&\vdots
+&\vdots\\
+-c v_{M - 2} + (1 + 2 c) v_{M - 1} - c v_{M} &= u_{M - 1}\\
+-c v_{M - 1} + (1 + 2 c) v_{M} &= u_M + c b
 \end{align*}
 $$
 
