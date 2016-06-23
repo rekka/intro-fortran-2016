@@ -14,7 +14,7 @@ Parameters are `M = 10`, `τ = ½h²`. Use the following initial and boundary da
     - `u_0(x) = sin(πx)`, `a = b = 0`
     - `u_0(x) = sin(πx) + sin(3πx)`, `a = b = 0`
 
-2. Neumann boundary condition `u_x(0, t) = a`, `u_x(1, t) = b`.
+2. Neumann boundary condition `u_x(0, t) = a`, `u_x(1, t) = b`:
 
     - `u_0(x) = x(1 - x) + x`, `a = 0`,  `b = 0`
     - `u_0(x) = 1/2 - |x- 1/2|`, `a = 1`, `b = -1`
@@ -44,7 +44,8 @@ maximum norm at `t = 0.1`: Set `i = 0.1 / τ` and compute
 max {|u(x_k, t_i) - u_{i, k}|: k=1, ..., M+1}.
 ```
 
-Use `M = 10, 20, 40`, `τ = ½h²`.
+Use `M = 10, 20, 40`, `τ = ½h²`. If your code is correct, the norm
+should get approximately 4 times smaller whenever M is taken 2 times bigger.
 
 ___Bonus:___
 
