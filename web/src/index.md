@@ -19,3 +19,7 @@ The sample Fortran code is available at
 - [Lecture 8](https://github.com/rekka/intro-fortran-2016/tree/master/lec08)
 - [Lecture 9](lec09.html)
 - [Lecture 10](lec10.html)
+
+## Links
+
+- [Syllabus](http://sab.adm.kanazawa-u.ac.jp/search/detail/detail_link.asp?YEAR=2016&FACT=52&DEPT=01&TERM_CD=1&LECTURE_NO=11009&COURSE_ID=16015211009000)
