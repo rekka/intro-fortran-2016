@@ -29,6 +29,16 @@ Here `u_t` is the partial derivative of `u` with respect to `t`, `u_t =
 `x`, `u_xx = ∂²u/∂x²`. We assume for simplicity that the heat
 conductivity is 1.
 
+We need to prescribe:
+
+- _initial condition_: `u(x, 0) = u_0(x)`, the value of the temperature
+  at the initial time `t = 0`. Here `u_0` is a given function.
+
+- _boundary condition_: `u(0, t) = a`, `u(1, t) = b`, where `a`, `b` are
+  given constants, prescribe what the temperature `u` is at the boundary
+  of the domain `(0, 1)`. This is also called the __Dirichlet boundary
+  condition__.
+
 [heat-wiki]: https://en.wikipedia.org/wiki/Heat_equation
 
 _Example_: Assume that `a = b = 0` and `u_0(x) = sin(π x)`. Then `u(x,t)
@@ -73,7 +83,7 @@ h²/2 u_xx(x,t) ∼ u(x + h, t) - 2u(x, t) + u(x - h, t).
 
 We now select an integer `M ≥ 1` and subdivide the domain `(0,1)` into
 `M` intervals `(x_k, x_{k+1})` of length `h = 1 / M` for `k = 1, ...,
-M`. In particular, `x_k = (k - 1) h`, `k = 0, ... M`.
+M`. In particular, `x_k = (k - 1) h`, `k = 1, ... M + 1`.
 
 Similarly, we choose time step `τ > 0` and introduce the discrete times
 `t_i = i τ` for `i = 0, ...`. Let `u_{i, k}` denote the value of a
@@ -159,7 +169,7 @@ solution.
 ## Neumann boundary condition
 
 Now instead of prescribing the value of `u` at `x = 0` and `x = 1`, we prescribe
-the value of the derivatives:
+the value of the derivative `u_x = ∂u/∂x`:
 
 ```
     u_t(x, t) = u_xx(x, t),        0 < x < 1, t > 0,
@@ -167,6 +177,10 @@ the value of the derivatives:
     u_x(0, t) = a,                 0 < t,
     u_x(1, t) = b,                 0 < t.
 ```
+
+In __Neumann boundary condition__, we prescribe the value of the derivative
+`u_x(0, t) = ∂u/∂x(0, t)` and `u_x(1, t) = ∂u/∂x(1, t)` on the boundary
+of the domain, instead of the value of the solution.
 
 We have the modify the numerical method at the boundary since now the
 values `u_{i, 1}` and `u_{i, M + 1}` are unknown. We use the difference
@@ -176,8 +190,10 @@ scheme as before:
 u_{i+1, k} = u_{i, k} + τ / h² * (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
 ```
 
-However, when `k = 1`, we need something in place of `u_{i, 0}`. We use
-the value of the derivative at `x = 0`: `u_{i, 1} = u_{i, 2} - h * a`.
+However, when `k = 1`, we need something in place of `u_{i, 0}` since
+`u_{i, 0}` is a value outside of the domain. We use
+the value of the derivative at `x = 0` to estimate the value outside of
+the domain using the Taylor approximation: `u_{i, 0} ~ u_{i, 1} - h * a`.
 Similarly, at `x = 1` we use `u_{i, M + 2} = u_{i, M + 1} + h * b`.
 Therefore for `k = 1` and at `k = M + 1` we get the modified scheme
 
