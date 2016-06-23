@@ -138,6 +138,8 @@ To connect the data points with lines, add `w l` (`with lines`):
 splot 'sol.dat' w l
 ```
 
+![Sample gnuplot output](https://github.com/rekka/intro-fortran-2016/blob/master/lec09/heat.svg)
+
 _Exercise:_ Solve the heat equation with the following data:
 
 - $u_0(x) = \sin(\pi x)$, $a = b = 0$
