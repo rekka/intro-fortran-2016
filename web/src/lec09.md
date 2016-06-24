@@ -104,7 +104,7 @@ following numerical scheme
 
 $$
 \frac{u_{i+1, k} - u_{i, k}} \tau = \frac{u_{i, k + 1} - 2 u_{i, k} +
-u_{i, k - 1}}{h^2}, \qquad i = 1, ..., \quad k = 2, ..., M.
+u_{i, k - 1}}{h^2}, \qquad i = 0, ..., \quad k = 2, ..., M.
 $$
 
 The values $u_{0, k}$ are given by the
@@ -116,8 +116,30 @@ $u_{i, k + 1}$. Therefore we can advance the solution from time $t_i$ to
 time $t_{i + 1}$. This gives us the explicit finite difference method
 
 $$
-u_{i+1, k} = u_{i, k} + \frac\tau{h^2} (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
+\left\{
+\begin{aligned}
+u_{i+1, 1} &= a, && i = 0, \ldots,\\
+u_{i+1, k} &= u_{i, k} + \frac\tau{h^2} (u_{i, k + 1} - 2 u_{i, k} +
+u_{i, k - 1}), && k = 2, \ldots, M, \ i = 0, \ldots,\\
+u_{i+1, M +1} &= b, && i = 0, \ldots,\\
+\end{aligned}
+\right.
 $$
+
+with the initial data
+
+$$
+\begin{aligned}
+u_{0, k} &= u_0(x_k), && k = 1, \ldots, M + 1.
+\end{aligned}
+$$
+
+This method is illustrated in the following figure.
+
+![The finite difference method for the heat equation. Diamonds ◆ represent
+the initial data while squares ■ represent the boundary data. The value at
+a point $(x_i, t_{i+1})$ is computed from the values at points
+$(x_{i-1}, t_i)$, $(x_{i}, t_i)$, $(x_{i+1}, t_i)$.](img/fdm.svg)
 
 An example Fortran code for the case $a = b = 0$ and $u_0(x) = \sin(\pi
 x)$, $M = 10$ and $\tau  = h^2 / 2$, is
