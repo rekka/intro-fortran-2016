@@ -6,7 +6,7 @@ In today's lecture we will look at [Runge--Kutta
 methods](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods):
 
 - [midpoint method](#midpoint-method)
-- [classical forth order Runge-Kutta method](#classical-forth-order-runge-kutta-method)
+- [classical fourth order Runge-Kutta method](#classical-fourth-order-runge-kutta-method)
 
 ## Runge-Kutta methods
 
@@ -81,11 +81,11 @@ truncation error at $t = 1$ for various $h$. Use gnuplot to estimate the
 order of the midpoint method. (Recall the logarithmic scale from last
 lecture.)
 
-### Classical forth order Runge-Kutta method
+### Classical fourth order Runge-Kutta method
 
 If we perform 4 functional evaluations for each time step, we can
 increase the order of the method to 4. This leads to the classical
-_forth order Runge-Kutta method_:
+_fourth order Runge-Kutta method_:
 
 $$
 \begin{aligned}
@@ -100,7 +100,7 @@ $$
 See more details about this method on
 [wikipedia](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method).
 
-_Exercise:_ Implement the forth order Runge-Kutta method to solve the
+_Exercise:_ Implement the fourth order Runge-Kutta method to solve the
 same ODE as in the case of the midpoint method. Estimate its order using
 gnuplot as before.
 
