@@ -1,4 +1,6 @@
-# Lecture 6
+---
+title: Lecture 6
+---
 
 We cover the following topics:
 

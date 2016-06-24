@@ -13,7 +13,7 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$$if(backtoindex)$ &mdash; Introduction to Numerical Analysis 1$endif$</title>
   <style type="text/css">code{white-space: pre;}</style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
@@ -71,7 +71,7 @@ $endfor$
 $if(backtoindex)$
 <p>
 <a href="index.html">↜ Back to index</a>
-<span style="float:right; font-style:italic">Introduction to numerical methods 1</span>
+<span style="float:right; font-style:italic">Introduction to Numerical Analysis 1</span>
 </p>
 $endif$
 $for(include-before)$

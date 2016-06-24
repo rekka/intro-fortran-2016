@@ -1,5 +1,5 @@
 ---
-title: Introduction to numerical methods 1<br> 数値解析序論１
+title: Introduction to Numerical Analysis 1<br> 数値解析序論１
 author: Norbert Pozar
 ---
 
