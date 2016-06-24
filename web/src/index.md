@@ -12,11 +12,11 @@ The sample Fortran code is available at
 
 - [Lecture 2](https://github.com/rekka/intro-fortran-2016/tree/master/lec02)
 - [Lecture 3: Euler method](lec03.html)
-- [Lecture 4](https://github.com/rekka/intro-fortran-2016/tree/master/lec04)
-- [Lecture 5](https://github.com/rekka/intro-fortran-2016/tree/master/lec05)
+- [Lecture 4: Runge--Kutta methods](https://github.com/rekka/intro-fortran-2016/tree/master/lec04)
+- [Lecture 5: 2^nd^ order ordinary differential equations](https://github.com/rekka/intro-fortran-2016/tree/master/lec05)
 - [Lecture 6: Backward Euler method, Newton's method](lec06.html)
 - [Lecture 7](https://github.com/rekka/intro-fortran-2016/tree/master/lec07)
-- [Lecture 8](https://github.com/rekka/intro-fortran-2016/tree/master/lec08)
+- [Lecture 8: Arrays in Fortran](https://github.com/rekka/intro-fortran-2016/tree/master/lec08)
 - [Lecture 9: Heat equation, finite difference method](lec09.html)
 - [Lecture 10](lec10.html)
 
