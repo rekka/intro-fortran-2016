@@ -85,7 +85,7 @@ lecture.)
 
 If we perform 4 functional evaluations for each time step, we can
 increase the order of the method to 4. This leads to the classical
-_fourth order Runge-Kutta method_:
+**fourth order Runge-Kutta method**:
 
 $$
 \begin{aligned}
