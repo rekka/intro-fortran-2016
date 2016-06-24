@@ -64,9 +64,9 @@ we use the same idea as for the Euler method: the Taylor series at $t$.
 Let $\tau  > 0$ and write:
 
 $$
-u(x, t + \tau ) = u(x, t) + \tau  u_t(x, t) + hot,
+u(x, t + \tau ) = u(x, t) + \tau  u_t(x, t) + O(\tau^2),
 $$
-where $hot$ stands for _higher order terms_.
+where $O(\tau^2)$ stands for _higher order terms_ proportional to $\tau^2$.
 
 We will therefore approximate
 
@@ -79,8 +79,8 @@ For the second derivative in $x$, we will use a similar idea. Let $h >
 
 $$
 \begin{aligned}
-u(x + h, t) &= u(x, t) + h u_x(x, t) + \frac{h^2}2 u_{xx}(x,t) + hot,\\
-u(x - h, t) &= u(x, t) - h u_x(x, t) + \frac{h^2}2 u_{xx}(x,t) + hot.
+u(x + h, t) &= u(x, t) + h u_x(x, t) + \frac{h^2}2 u_{xx}(x,t) + O(h^3),\\
+u(x - h, t) &= u(x, t) - h u_x(x, t) + \frac{h^2}2 u_{xx}(x,t) + O(h^3).
 \end{aligned}
 $$
 
@@ -226,28 +226,45 @@ condition__. We prescribe the value of the derivatives $u_x(0, t) =
 u}{\partial x}(1, t)$ on the boundary of the domain, instead of the
 value of the solution as in the case of the Dirichlet boundary condition.
 
-We have the modify the numerical method at the boundary since now the
+We have to modify the numerical method at the boundary since now the
 values $u_{i, 1}$ and $u_{i, M + 1}$ are unknown. We use the difference
 scheme as before:
 
 $$
+\begin{equation}
+\label{diffscheme}
 u_{i+1, k} = u_{i, k} + \frac\tau{h^2} (u_{i, k + 1} - 2 u_{i, k} + u_{i, k - 1}).
+\end{equation}
 $$
 
 However, when $k = 1$, we need something in place of $u_{i, 0}$ since
-$u_{i, 0}$ is a value outside of the domain. We use
-the value of the derivative at $x = 0$ to estimate the value outside of
-the domain using the Taylor approximation: $u_{i, 0} \sim u_{i, 1} - h a$.
-Similarly, at $x = 1$ we use $u_{i, M + 2} \sim u_{i, M + 1} + h b$.
-Therefore for $k = 1$ and at $k = M + 1$ we get the modified scheme
+$u_{i, 0}$ is a value outside of the domain. We use the second order
+symmetric finite difference
+
+$$
+\begin{equation}
+\label{2nd}
+u_x(x, t) = \frac{u(x + h, t) - u(x - h, t)}{2 h} + O(h^2).
+\end{equation}
+$$
+
+Therefore we can use the value of the derivative $u_x$ on the boundary
+to estimate the value of the solution outside of the domain.
+From $\eqref{2nd}$ we have $u_{i, 0} \sim u_{i, 2} - 2 h a$.
+Similarly, at $x = 1$ we use $u_{i, M + 2} \sim u_{i, M} + 2 h b$.
+After substituting this into $\eqref{diffscheme}$, we get for $k = 1$
+and $k = M + 1$ the modified scheme
 
 $$
 \begin{aligned}
-u_{i+1, 1} &= u_{i, 1} + \frac\tau{h^2} (u_{i, 2} - u_{i, 1} - h a),\\
-u_{i+1, M + 1} &= u_{i, M + 1} + \frac\tau{h^2} (u_{i, M} - u_{i, M + 1} + h b).
+u_{i+1, 1} &= u_{i, 1} + \frac{2\tau}{h^2} ( u_{i, 2} -  u_{i, 1} -  h a),\\
+u_{i+1, M + 1} &= u_{i, M + 1} + \frac{2\tau}{h^2} (u_{i, M} - u_{i, M
++ 1} + h b).
 \end{aligned}
 $$
 
 _Exercise:_ Implement the finite difference method for the heat equation
 with initial data $u_0(x) = x (1 - x)$ and Neumann boundary data $u_x(0,
 t) = 1$, $u_x(1, t) = 1$.
+
+What is the exact solution?
