@@ -38,6 +38,14 @@ $endfor$
         font-size: 12pt;
         border: 0px;
     }
+	footer {
+		margin-top: 32px;
+		padding: 1em;
+		border-top: 1px dashed SkyBlue;
+		text-align: center;
+		font-size: 70%;
+		color: SkyBlue;
+	}
     /* fix for fractions not having a margin */
     .mjx-mfrac {
         margin-right: 0.2em;
@@ -61,7 +69,10 @@ $endfor$
 <body>
 <article class="markdown-body">
 $if(backtoindex)$
-    <p><a href="index.html">↜ Back to index</a></p>
+<p>
+<a href="index.html">↜ Back to index</a>
+<span style="float:right; font-style:italic">Introduction to numerical methods 1</span>
+</p>
 $endif$
 $for(include-before)$
 $include-before$
@@ -89,6 +100,11 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+
+<footer>
+<p>Made with <a href="http://www.vim.org/">Vim</a> and <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>.</p> <p>Math delivered using <a href="http://www.mathjax.org/">MathJax</a>.</p>
+<p>Norbert Požár, 2016</p>
+</footer>
 </article>
 </body>
 </html>
