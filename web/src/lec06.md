@@ -6,7 +6,9 @@ We cover the following topics:
 
 ### Stability of the Euler method
 
-Now take the file `euler.f90` and modify it to solve the ODE
+Take the file
+[`euler.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec03/euler.f90)
+from [Lecture 3](lec03.html) and modify it to solve the ODE
 
 $$
 \left\{

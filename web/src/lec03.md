@@ -55,7 +55,8 @@ end program
 - `external` indicates that `f` is a function, not a variable.
 - `f(x, 0.5)` evaluates function with arguments `x` and `0.5`.
 
-See the file `function.f90` for the complete code.
+See the file
+[`function.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec03/function.f90) for the complete code.
 
 
 ## Euler method
@@ -112,12 +113,14 @@ This simple relation can be expressed in Fortran using the `do` loop and
 one variable `x` that represents the value $x_i$ as it is iteratively
 updated.
 
-The Fortran code is in the file `euler.f90`. In that code we use the right-hand side
+The Fortran code is in the file
+[`euler.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec03/euler.f90). In that code we use the right-hand side
 $f(x, t) = x$ and initial data $x(0) = 1$, the time step $h = 0.1$ and
 find the numerical solution for
 $N = 10$ time steps.
 
-_Exercise:_ Modify `euler.f90` to solve the ODE
+_Exercise:_ Modify
+[`euler.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec03/euler.f90) to solve the ODE
 
 $$
 \left\{
@@ -154,7 +157,8 @@ We can implement this in Fortran using two nested `do` loops: the outer
 one iterates over the values of $N$ and the inner one is the
 Euler method.
 
-The full code is in the file `euler-error.f90`. When running
+The full code is in the file
+[`euler-error.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec03/euler-error.f90). When running
 this, the code prints out the table of values of $h$ and the error $|x_N
 - x(N h)|$ which is the global truncation error at time $t = 1$.
 
