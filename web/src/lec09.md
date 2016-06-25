@@ -136,10 +136,11 @@ $$
 
 This method is illustrated in the following figure.
 
-![The finite difference method for the heat equation. Diamonds ◆ represent
-the initial data while squares ■ represent the boundary data. The value at
-a point $(x_k, t_{i+1})$ is computed from the values at points
-$(x_{k-1}, t_i)$, $(x_{k}, t_i)$, $(x_{k+1}, t_i)$.](img/fdm.svg)
+![The finite difference method for the heat equation with $M = 6$.
+Diamonds ◆ represent the initial data while squares ■ represent the
+boundary data. The value at a point $(x_k, t_{i+1})$ is computed from
+the values at points $(x_{k-1}, t_i)$, $(x_{k}, t_i)$, $(x_{k+1},
+t_i)$.](img/fdm.svg)
 
 An example Fortran code for the case $a = b = 0$ and $u_0(x) = \sin(\pi
 x)$, $M = 10$ and $\tau  = h^2 / 2$, is
@@ -262,6 +263,17 @@ u_{i+1, M + 1} &= u_{i, M + 1} + \frac{2\tau}{h^2} (u_{i, M} - u_{i, M
 + 1} + h b).
 \end{aligned}
 $$
+
+See the following figure for an illustration.
+
+![The Neumann boundary condition ($M = 6$). In contrast to the Dirichlet
+boundary condition, the boundary values (■) are not given by the
+boundary data and have to be computed. The finite difference scheme
+$\eqref{diffscheme}$ needs the value at points outside of the domain
+(★). We estimate the value there using the derivative at the boundary
+points and the value of the solution inside the domain. This way only
+the values inside the domain are necessary to compute the value (solid
+arrows).](img/fdm-neumann.svg)
 
 _Exercise:_ Implement the finite difference method for the heat equation
 with initial data $u_0(x) = x (1 - x)$ and Neumann boundary data $u_x(0,
