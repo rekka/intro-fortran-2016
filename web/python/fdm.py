@@ -29,7 +29,7 @@ ax.scatter(*zip(*boundary), marker='s')
 initial = [(h * i, 0) for i in range(0, M + 1)]
 ax.scatter(*zip(*initial), marker='D')
 
-stencil_labels = ['$(x_i, t_{i+1})$', '$(x_{i -1}, t_{i})$', '$(x_{i}, t_{i})$', '$(x_{i + 1}, t_{i})$']
+stencil_labels = ['$(x_k, t_{i+1})$', '$(x_{k -1}, t_{i})$', '$(x_{k}, t_{i})$', '$(x_{k + 1}, t_{i})$']
 for i in range(len(stencil)):
     x, y = stencil[i]
     ax.annotate(stencil_labels[i], xy=stencil[i], xytext=(x + 0.01, y + (- 0.05 if (i > 0) else 0.03)))

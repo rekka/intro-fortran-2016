@@ -138,8 +138,8 @@ This method is illustrated in the following figure.
 
 ![The finite difference method for the heat equation. Diamonds ◆ represent
 the initial data while squares ■ represent the boundary data. The value at
-a point $(x_i, t_{i+1})$ is computed from the values at points
-$(x_{i-1}, t_i)$, $(x_{i}, t_i)$, $(x_{i+1}, t_i)$.](img/fdm.svg)
+a point $(x_k, t_{i+1})$ is computed from the values at points
+$(x_{k-1}, t_i)$, $(x_{k}, t_i)$, $(x_{k+1}, t_i)$.](img/fdm.svg)
 
 An example Fortran code for the case $a = b = 0$ and $u_0(x) = \sin(\pi
 x)$, $M = 10$ and $\tau  = h^2 / 2$, is
