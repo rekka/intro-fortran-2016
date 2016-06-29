@@ -275,6 +275,11 @@ points and the value of the solution inside the domain. This way only
 the values inside the domain are necessary to compute the value (solid
 arrows).](img/fdm-neumann.svg)
 
+_Example:_
+ the heat equation with the Neumann boundary,
+with initial data $u_0(x) = x (1 - x)$ and boundary data $a = 1$,
+$b = -1$ has the exact solution $u(x,t) = x (1 - x) - 2t$.
+
 _Exercise:_ Implement the finite difference method for the heat equation
 with initial data $u_0(x) = x (1 - x)$ and Neumann boundary data $u_x(0,
 t) = 1$, $u_x(1, t) = 1$.

@@ -19,15 +19,15 @@ results.
 
     Parameters are $M = 10$, $\tau = \frac 12h^2$. Use the following initial and boundary data:
 
-    - Dirichlet boundary condition $u(0, t) = a$, $u(1, t) = b$:
+      - Dirichlet boundary condition $u(0, t) = a$, $u(1, t) = b$:
 
-        - $u_0(x) = \sin(\pi x)$, $a = b = 0$
-        - $u_0(x) = \sin(\pi x) + \sin(3\pi x)$, $a = b = 0$
+          - $u_0(x) = \sin(\pi x)$, $a = b = 0$
+          - $u_0(x) = \sin(\pi x) + \sin(3\pi x)$, $a = b = 0$
 
-    - Neumann boundary condition $u_x(0, t) = a$, $u_x(1, t) = b$:
+      - Neumann boundary condition $u_x(0, t) = a$, $u_x(1, t) = b$:
 
-        - $u_0(x) = x(1 - x) + x$, $a = 0$,  $b = 0$
-        - $u_0(x) = \frac 12 - |x- \frac 12|$, $a = 1$, $b = -1$
+          - $u_0(x) = x(1 - x) + x$, $a = 0$,  $b = 0$
+          - $u_0(x) = \frac 12 - |x- \frac 12|$, $a = 1$, $b = -1$
 
  2. Plot the solutions using gnuplot. To store the plot as an image
     file, you can use the gnuplot commands:
