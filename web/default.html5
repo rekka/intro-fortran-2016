@@ -50,6 +50,15 @@ $endfor$
     .mjx-mfrac {
         margin-right: 0.2em;
     }
+    @media print {
+        .markdown-body {
+            font-size: 9pt;
+            line-height: 1.1;
+        }
+        #back-to-index {
+            display: none;
+        }
+    }
 </style>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -70,7 +79,7 @@ $endfor$
 <article class="markdown-body">
 $if(backtoindex)$
 <p>
-<a href="index.html">↜ Back to index</a>
+<a href="index.html" id="back-to-index">↜ Back to index</a>
 <span style="float:right; font-style:italic">Introduction to Numerical Analysis 1</span>
 </p>
 $endif$
