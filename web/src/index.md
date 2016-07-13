@@ -19,6 +19,7 @@ The sample Fortran code is available at
 - [Lecture 8: Arrays in Fortran](https://github.com/rekka/intro-fortran-2016/tree/master/lec08)
 - [Lecture 9: Heat equation, finite difference method](lec09.html)
 - [Lecture 10: Presentation](lec10.html)
+- [Lecture 13: Systems of linear equations, Gauss elimination](lec13.html)
 
 ## Links
 
