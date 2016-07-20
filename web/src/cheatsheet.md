@@ -9,7 +9,7 @@ title: Fortran cheatsheet
 To run program, it must be compiled first. For example, save the
 following in `helloworld.f90`:
 
-```gfortran
+```fortran
 program helloworld
     write(*,*)'Hello, world!'
 end program
@@ -32,13 +32,13 @@ Hello, world!
 
 ### Comments
 
-```gfortran
+```fortran
 ! comment
 ```
 
 ## Program structure
 
-```gfortran
+```fortran
 program name                    ! `name` can be any name
     implicit none               ! no implicit variables (this is better)
     integer :: i                ! variable declarations
@@ -50,7 +50,7 @@ end program
 
 ## Variables
 
-```gfortran
+```fortran
 integer :: i                    ! integer
 real :: x                       ! real number
 real, dimension(5) :: y         ! array of 5 real numbers
@@ -62,7 +62,7 @@ y = (/ 1., 2., 3., 4., 5. /)
 
 ## `do` loop
 
-```gfortran
+```fortran
 integer :: i
 real, dimension(5) :: y         ! array of 5 real numbers
 
@@ -70,12 +70,27 @@ do i=1,5
     y(i) = 2 * i                ! perform this code for i taking values
                                 ! 1, 2, 3, 4, 5
 end do
+```
 
 ## `if` condition
 
-```gfortran
-if (2 > 1) ` then
-    write(*,*)'2 is bigger than 1!'
+```fortran
+if (2 > 1) then                         ! (2 > 1) is any condition
+    write(*,*)'2 is bigger than 1!'     ! executed if condition is true
 else
+    write(*,*)'Math is wrong!'          ! executed if condition is false
+end if
+```
 
+- `==` equal
+- `/=` not equal
+- `<=`, `>=` less than or equal, greater than or equal
+- `<`, `>` less than, greater than
+
+The `else` part can be omitted:
+
+```fortran
+if (2 * 2 /= 4) then
+    write(*,*)'Math is wrong!'
+end if
 ```
