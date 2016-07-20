@@ -1,6 +1,6 @@
 ---
 title: Introduction to Numerical Analysis 1<br> 数値解析序論１
-author: Norbert Pozar
+author: Norbert Pozar // 2016
 ---
 
 ## Code
@@ -21,6 +21,10 @@ The sample Fortran code is available at
 - [Lecture 10: Presentation](lec10.html)
 - [Lecture 13: Systems of linear equations, Gauss elimination](lec13.html)
 - [Lecture 14: Implicit method for the heat equation](lec14.html)
+
+## Reference
+
+- [Fortran cheatsheet](cheatsheet.html)
 
 ## Links
 
