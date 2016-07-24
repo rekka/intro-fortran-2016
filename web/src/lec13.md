@@ -241,4 +241,5 @@ solution vector $x = (x_1, \ldots, x_n)$.
 Check that this function works by applying it to the problem from the
 previous exercise.
 
-
+A sample code can be found in
+[`tridiag.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec13/tridiag.f90).
