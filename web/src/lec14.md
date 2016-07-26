@@ -83,6 +83,21 @@ __Exercise.__ Use the implicit method to solve the heat equation with
 initial data $u_0(x) = \sin(\pi x)$, and boundary data $u(0) = u(1) =
 0$, on the domain $(0,1)$ using $h = 0.1$ and $\tau  = 0.1$.
 
+A sample solution is in
+[`implicit_heat.f90`](https://github.com/rekka/intro-fortran-2016/blob/master/lec14/implicit_heat.f90).
+You can run the code, save the data in `sol.dat` and plot the graph by
+running:
+
+```bash
+gfortran implicit_heat.f90 -o a.exe && ./a.exe > sol.dat && gnuplot implicit_heat.plt
+```
+
+Here is a sample output. Note that the space and time resolution is the
+same, in contrast to the explicit method.
+
+![Solution of the heat equation using the implicit method with $u_0(x) =
+\sin \pi x$.](img/implicit_heat.svg)
+
 ## Higher order method
 
 So far we have covered only methods that whose error of time
