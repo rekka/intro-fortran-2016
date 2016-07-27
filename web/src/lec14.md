@@ -77,7 +77,7 @@ $$
 $$
 
 This system can be efficiently solved using the [tridiagonal matrix
-algorithm](#gaussian-elimination-for-tridiagonal-systems).
+algorithm](lec13.html#gaussian-elimination-for-tridiagonal-systems).
 
 __Exercise.__ Use the implicit method to solve the heat equation with
 initial data $u_0(x) = \sin(\pi x)$, and boundary data $u(0) = u(1) =

@@ -83,15 +83,15 @@ $$
 2 u_{1} - u_{2} &= h^2 f(x_1) + a\\
 - u_{1} + 2 u_{2} - u_{3} &= h^2 f(x_2)\\
 &\vdots\\
-- u_{k-1} + 2 u_{k} - u_{k+1} &= h^2 f(x_2)\\
+- u_{k-1} + 2 u_{k} - u_{k+1} &= h^2 f(x_k)\\
 &\vdots\\
--u_{K-2} + 2 u_{K-1} &= h^2 f(x_2) + b.
+-u_{K-2} + 2 u_{K-1} &= h^2 f(x_{K-1}) + b.
 \end{align*}
 $$
 
 The matrix of this system is tridiagonal, as so it can be
 efficiently solved using the [tridiagonal matrix
-algorithm](#gaussian-elimination-for-tridiagonal-systems).
+algorithm](lec13.html#gaussian-elimination-for-tridiagonal-systems).
 
 __Exercise.__
 
@@ -132,11 +132,11 @@ parameters:
 
 
  2. Estimate the order of the method: Solve 1(ii) above for
-    a sequence of $K = 10, 20, 40, 80, 160, 320, 640$.
+    a sequence of $K = 10, 20, 40, 80, 160$.
     For each $K$, you will obtain a solution that we will denote as
     $u^K = (u^K_1, \ldots, u^K_{K-1})$. Let $u(x)$ be the exact solution
     of Poisson's equation with the given data^[Note that $u(x) = \sin x
-     + 2x - 1$]. For each $K$, compute the
+     + (2 - \sin 1) x - 1$]. For each $K$, compute the
     following two errors:
     $$
     \begin{align*}
@@ -157,7 +157,7 @@ parameters:
     10      error2      error_inf
     20      ...         ...
     ...
-    640     ...         ...
+    160     ...         ...
     ```
 
     _Hint._
