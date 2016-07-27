@@ -117,6 +117,20 @@ parameters:
     1.      -1.
     ```
 
+    __Upload the graph for (iii) to Acanthus portal under the name
+    `poisson_iii.png`.__
+    You can produce a file using gnuplot by running commands:
+
+    ```gnuplot
+    set term pngcairo size 1024,768
+    set output 'poisson_iii.png'
+
+    # your plot commands here
+
+    set output
+    ```
+
+
  2. Estimate the order of the method: Solve 1(ii) above for
     a sequence of $K = 10, 20, 40, 80, 160, 320, 640$.
     For each $K$, you will obtain a solution that we will denote as
