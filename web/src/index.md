@@ -22,6 +22,7 @@ The sample Fortran code is available at
 - [Lecture 13: Systems of linear equations, Gauss elimination](lec13.html)
 - [Lecture 14: Implicit method for the heat equation](lec14.html)
 - [Lecture 15: Poisson's equation](lec15.html)
+- [Lecture 16: Final report](lec16.html)
 
 ## Reference
 
