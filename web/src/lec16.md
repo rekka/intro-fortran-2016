@@ -157,7 +157,9 @@ to
 find the array $v$ since the matrix of the system is tridiagonal.
 
 Use the following parameters: $M = 64$, $h = 1/M$, $t_1 = 0.1$,
-$\tau = h$, $N = t_1 / \tau$, $a_0 = -1$, $a_1 = 2$,
+$\tau = h$, $N = \lfloor t_1 / \tau \rfloor$ (see ^[The
+[floor](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions) of $t_1 /
+\tau$]), $a_0 = -1$, $a_1 = 2$,
 
 $$
 u_0(x) = -\cos (3 \pi x) + x.
@@ -350,7 +352,8 @@ $$
 で実装済み)を用いることができる.
 
 次のパラメータを用いなさい: $M = 64$, $h = 1/M$, $t_1 = 0.1$,
-$\tau = h$, $N = t_1 / \tau$, $a_0 = -1$, $a_1 = 2$,
+$\tau = h$, $N = \lfloor t_1 / \tau \rfloor$ (see ^[ $t_1 /
+\tau$の[床関数](https://ja.wikipedia.org/wiki/%E5%BA%8A%E9%96%A2%E6%95%B0%E3%81%A8%E5%A4%A9%E4%BA%95%E9%96%A2%E6%95%B0)]), $a_0 = -1$, $a_1 = 2$,
 
 $$
 u_0(x) = -\cos (3 \pi x) + x.
